@@ -34,3 +34,7 @@
 - Convert MP4 video to VP9 codec. For the best quality, use a CRF value (recommended range 15-35) and -b:video MUST be 0:
 
 `ffmpeg -i {{input_video}}.mp4 -codec:video libvpx-vp9 -crf {{30}} -b:video 0 -codec:audio libopus -vbr on -threads {{number_of_threads}} {{output_video}}.webm`
+
+- Embed SRT subtitles into MP4 container:
+
+`ffmpeg -i {{input_video}}.mp4 -i {{input_subtitle}}.srt -c copy -c:s mov_text {{output_video}}.mp4`
